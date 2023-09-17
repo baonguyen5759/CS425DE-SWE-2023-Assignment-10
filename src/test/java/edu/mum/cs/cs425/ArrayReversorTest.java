@@ -9,11 +9,10 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ArrayReversorTest {
-    @Mock
-    private ArrayFlattenerService arrayFlattenerService;
 
     @Test
     public void reverseArrayTest1() {
+        ArrayFlattenerService arrayFlattenerService = Mockito.mock(ArrayFlattenerService.class);
         Assert.assertNotNull(arrayFlattenerService);
 
         int[] flattenResults = {1, 3, 0, 4, 5, 9};
@@ -29,8 +28,12 @@ public class ArrayReversorTest {
 
     @Test
     public void reverseArrayTest2() {
+        ArrayFlattenerService arrayFlattenerService = Mockito.mock(ArrayFlattenerService.class);
         Assert.assertNotNull(arrayFlattenerService);
-        int[] result = arrayFlattenerService.flattenArray(null);
-        Assert.assertArrayEquals(null, arrayFlattenerService.flattenArray(null));
+
+        ArrayReversor arrayReversor = new ArrayReversor(arrayFlattenerService);
+        int[] result = arrayReversor.reverseArray(null);
+
+        Assert.assertArrayEquals(null, arrayReversor.reverseArray(null));
     }
 }

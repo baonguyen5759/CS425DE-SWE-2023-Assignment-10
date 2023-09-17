@@ -2,6 +2,8 @@ package edu.mum.cs.cs425;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runner.Runner;
 
 public class ArrayFlattenerTest {
     @Test
@@ -17,5 +19,4 @@ public class ArrayFlattenerTest {
         ArrayFlattener arrayFlattener = new ArrayFlattener();
         Assert.assertArrayEquals(null, arrayFlattener.flatternArray(null));
     }
-
 }
